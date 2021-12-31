@@ -3,7 +3,7 @@
     <p class="text-5xl mx-auto font-bold font-mono my-10">ThreeJS Sketches</p>
     <div class="flex flex-row space-x-4">
       <div v-for="sketch in sketchNames" :key="sketch" class="w-full flex">
-        <button class="h-full w-1/2 mx-auto hover:shadow-2xl p-6 hover:border-4 hover:border-violet-500 rounded-xl" @click="redirectToSketch(sketch)">
+        <button class="h-full mx-auto hover:shadow-2xl p-6 hover:border-4 hover:border-violet-500 rounded-xl" @click="redirectToSketch(sketch)">
           <img
             class="object-scale-down"
             :src="getThumbnailSource(sketch)"
@@ -26,7 +26,7 @@ export default {
   name: "App",
   data() {
     return {
-      sketchNames: ["functionVisualizer"],
+      sketchNames: ["functionVisualizer", "galaxyGenerator"],
     };
   },
   computed: {
@@ -38,7 +38,7 @@ export default {
     redirectToSketch(sketch) {
       let routeData = this.$router.resolve({
         name: "Sketch",
-        params: { canvasName: "one" },
+        params: { canvasName: sketch },
       });
       // required for opening in a new tab
       window.open(routeData.href, "_blank");
@@ -48,13 +48,15 @@ export default {
     },
     getDescriptionText(sketchName) {
       let map = {
-        functionVisualizer: "Generate a surface made of thousands of particles and visualise how it morphs as different mathematical functions are applied to it"
+        functionVisualizer: "Generate a surface made of thousands of particles and visualise how it morphs as different mathematical functions are applied to it",
+        galaxyGenerator: "Generate beautiful rich particle galaxies and export it"
       }
       return map[sketchName]
     },
     getTitleText(sketchName) {
       let map = {
-        functionVisualizer: "Math functions visualizer"
+        functionVisualizer: "Math functions visualizer",
+        galaxyGenerator: "Galaxy Generator"
       }
       return map[sketchName]
     }

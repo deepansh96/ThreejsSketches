@@ -4,7 +4,8 @@
 
 <script>
 /* eslint-disable */
-import renderScene from "@/assets/scenes/functionVisualizer.js"
+import functionVisualizer from "@/assets/scenes/functionVisualizer.js"
+import galaxyGenerator from "@/assets/scenes/galaxyGenerator.js"
 
 export default {
   name: "Sketch",
@@ -15,7 +16,8 @@ export default {
     },
   },
   mounted() {
-    renderScene(this.canvasName)
+    if (this.canvasName == "functionVisualizer") functionVisualizer(this.canvasName)
+    else if (this.canvasName == "galaxyGenerator") galaxyGenerator(this.canvasName)
   }
 };
 </script>
