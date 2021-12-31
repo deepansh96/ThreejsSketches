@@ -1,7 +1,7 @@
 <template>
   <div v-if="onHomePage" class="flex flex-col">
     <p class="text-5xl mx-auto font-bold font-mono my-10">ThreeJS Sketches</p>
-    <div class="flex flex-row space-x-4">
+    <div class="flex lg:flex-row lg:space-x-4 flex-col">
       <div v-for="sketch in sketchNames" :key="sketch" class="w-full flex">
         <button class="h-full mx-auto hover:shadow-2xl p-6 hover:border-4 hover:border-violet-500 rounded-xl" @click="redirectToSketch(sketch)">
           <img

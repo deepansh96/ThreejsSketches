@@ -15,9 +15,22 @@ export default {
       default: "",
     },
   },
+  computed: {
+    isTouchScreen() {
+      return window.matchMedia("(any-pointer: coarse)").matches;
+    }
+  },
   mounted() {
     if (this.canvasName == "functionVisualizer") functionVisualizer(this.canvasName)
     else if (this.canvasName == "galaxyGenerator") galaxyGenerator(this.canvasName)
+
+    let guiPanel = document.querySelector('.lil-gui')
+    if(guiPanel != undefined) {
+      if (this.isTouchScreen) {
+        guiPanel.classList.add('closed')
+        guiPanel.style.width = '300px'
+      }
+    }
   }
 };
 </script>
