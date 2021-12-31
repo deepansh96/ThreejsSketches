@@ -1,11 +1,8 @@
 /* eslint-disable */
 import * as THREE from "three";
 import { OrbitControls } from "@/../node_modules/three/examples/jsm/controls/OrbitControls.js";
+import exportGLTF from "@/assets/utils/exportGLTF";
 import * as dat from "lil-gui";
-
-// var clonedeep = require("lodash.clonedeep");
-
-// let particleTextureImage = require("@/assets/textures/particles/1.png");
 
 export default function (canvasName) {
 
@@ -13,10 +10,6 @@ export default function (canvasName) {
   gui = new dat.GUI({ width: 400 })
   canvas = document.querySelector(`canvas.${canvasName}`)
   scene = new THREE.Scene()
-  
-  // let axesHelper = new THREE.AxesHelper(5)
-  // scene.add(axesHelper)
-
 
   let generateGalaxyParams = {
     count: 50000,
@@ -174,4 +167,6 @@ export default function (canvasName) {
   tick();
 
   function normalize (val, max, min) { return (val - min) / (max - min); }
+
+  document.querySelector('#export').addEventListener('click', () => exportGLTF(scene))
 }

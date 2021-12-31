@@ -1,5 +1,8 @@
 <template>
   <canvas :class="canvasName" class="fixed top-0 left-0 outline-0"></canvas>
+  <button id="export" class="w-40 h-10 z-50 border-b-2 border-r-2 border-gray-500 bg-white top-10 fixed left-10">
+    <p class="text-2xl font-bold">Export</p>
+  </button>
 </template>
 
 <script>
