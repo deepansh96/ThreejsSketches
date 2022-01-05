@@ -26,7 +26,7 @@ export default {
   name: "App",
   data() {
     return {
-      sketchNames: ["functionVisualizer", "galaxyGenerator"],
+      sketchNames: ["functionVisualizer", "galaxyGenerator", "risingPlatforms"],
     };
   },
   computed: {
@@ -49,14 +49,16 @@ export default {
     getDescriptionText(sketchName) {
       let map = {
         functionVisualizer: "Generate a surface made of thousands of particles and visualise how it morphs as different mathematical functions are applied to it",
-        galaxyGenerator: "Generate beautiful rich particle galaxies and export it"
+        galaxyGenerator: "Generate beautiful rich particle galaxies and export it",
+        risingPlatforms: "Click on the grid boxes to make them rise and create abstract structures"
       }
       return map[sketchName]
     },
     getTitleText(sketchName) {
       let map = {
         functionVisualizer: "Math functions visualizer",
-        galaxyGenerator: "Galaxy Generator"
+        galaxyGenerator: "Galaxy Generator",
+        risingPlatforms: "Rising Platforms"
       }
       return map[sketchName]
     }
