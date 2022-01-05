@@ -40,8 +40,9 @@ export default function (canvasName) {
   camera = new THREE.PerspectiveCamera(
     65, sizes.width / sizes.height, 0.1, 100
   )
-  camera.position.z = 60
+  camera.position.z = 40
   camera.position.y = 20
+  camera.position.x = 40
   scene.add(camera)
 
   // controls
