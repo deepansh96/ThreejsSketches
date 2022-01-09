@@ -3,7 +3,7 @@
   <button 
     id="export" 
     class="w-40 h-10 z-50 border-b-2 border-r-2 border-gray-500 bg-white top-10 fixed left-10"
-    v-if="canvasName != 'risingPlatforms'"
+    v-if="canvasName != 'planetScroll'"
   >
     <p class="text-2xl font-bold">Export</p>
   </button>
@@ -14,6 +14,7 @@
   >
     <p class="text-2xl font-bold">Reset</p>
   </button>
+  <PlanetsScroll v-if="canvasName == 'planetScroll'"></PlanetsScroll>
 </template>
 
 <script>
@@ -21,9 +22,15 @@
 import functionVisualizer from "@/assets/scenes/functionVisualizer.js"
 import galaxyGenerator from "@/assets/scenes/galaxyGenerator.js"
 import risingPlatforms from "@/assets/scenes/risingPlatforms.js"
+import planetScroll from "@/assets/scenes/planetScroll.js"
+
+import PlanetsScroll from "@/components/PlanetsScroll.vue"
 
 export default {
   name: "Sketch",
+  components: {
+    PlanetsScroll,
+  },
   props: {
     canvasName: {
       type: String,
@@ -36,7 +43,14 @@ export default {
     }
   },
   mounted() {
-    if (this.canvasName == "functionVisualizer") functionVisualizer(this.canvasName)
+    if (this.canvasName == "planetScroll") {
+      document.documentElement.style.overflow = 'visible'
+      document.documentElement.style.background = '#1e1a20'
+      document.body.style.overflow = 'visible'
+
+      planetScroll(this.canvasName)
+    }
+    else if (this.canvasName == "functionVisualizer") functionVisualizer(this.canvasName)
     else if (this.canvasName == "galaxyGenerator") galaxyGenerator(this.canvasName)
     else if (this.canvasName == "risingPlatforms") risingPlatforms(this.canvasName)
 

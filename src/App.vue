@@ -26,7 +26,12 @@ export default {
   name: "App",
   data() {
     return {
-      sketchNames: ["functionVisualizer", "galaxyGenerator", "risingPlatforms"],
+      sketchNames: [
+        "functionVisualizer", 
+        "galaxyGenerator", 
+        "risingPlatforms",
+        "planetScroll"
+      ],
     };
   },
   computed: {
@@ -50,7 +55,8 @@ export default {
       let map = {
         functionVisualizer: "Generate a surface made of thousands of particles and visualise how it morphs as different mathematical functions are applied to it",
         galaxyGenerator: "Generate beautiful rich particle galaxies and export it",
-        risingPlatforms: "Click on the grid boxes to make them rise and create abstract structures"
+        risingPlatforms: "Click on the grid boxes to make them rise and create abstract structures",
+        planetScroll: "Scroll based visualization of the inner planets",
       }
       return map[sketchName]
     },
@@ -58,7 +64,8 @@ export default {
       let map = {
         functionVisualizer: "Math functions visualizer",
         galaxyGenerator: "Galaxy Generator",
-        risingPlatforms: "Rising Platforms"
+        risingPlatforms: "Rising Platforms",
+        planetScroll: "Inner Planet Scroll",
       }
       return map[sketchName]
     }
