@@ -84,6 +84,9 @@ export default function (canvasName) {
 
   // models
   let manager = new THREE.LoadingManager();
+  manager.onProgress = (_, loaded, total) => {
+    console.log(`${loaded} / ${total}`)
+  }
   let solarSystemModelPromise = loadModel(manager, '/models/solarSystem/scene1.glb').then((result) => {
     solarSystemModel = result.scene.children[0]
   })
