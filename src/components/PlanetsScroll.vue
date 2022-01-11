@@ -272,7 +272,7 @@ export default {
       },
       loadingOffset: 0,
       loaded: 0,
-      totalToLoad: 1,
+      totalToLoad: 20,
     };
   },
   methods: {
@@ -414,7 +414,6 @@ export default {
       };
       manager.onProgress = (_, loaded, total) => {
         if (loaded > this.loaded) this.loaded = loaded
-        if (total > this.totalToLoad) this.totalToLoad = total;
         document.querySelector(
           "#loadingBar"
         ).style.width = `${this.loadingPercent}%`;
