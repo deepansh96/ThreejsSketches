@@ -412,7 +412,7 @@ export default {
       manager.onStart = () => {
         this.isLoading = true;
       };
-      manager.onProgress = (_, loaded, total) => {
+      manager.onProgress = (_, loaded) => {
         if (loaded > this.loaded) this.loaded = loaded
         document.querySelector(
           "#loadingBar"
