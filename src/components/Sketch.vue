@@ -1,5 +1,7 @@
 <template>
-  <!-- <canvas :class="canvasName" class="fixed top-0 left-0 outline-0"></canvas> -->
+  <canvas :class="canvasName" class="fixed top-0 left-0 outline-0"
+    v-if="canvasName == 'functionVisualizer' || canvasName == 'galaxyGenerator' || canvasName == 'risingPlatforms'"
+  ></canvas>
   <button 
     id="export" 
     class="w-40 h-10 z-50 border-b-2 border-r-2 border-gray-500 bg-white top-10 fixed left-10"
@@ -43,9 +45,9 @@ export default {
     }
   },
   mounted() {
-    // else if (this.canvasName == "functionVisualizer") functionVisualizer(this.canvasName)
-    // else if (this.canvasName == "galaxyGenerator") galaxyGenerator(this.canvasName)
-    // else if (this.canvasName == "risingPlatforms") risingPlatforms(this.canvasName)
+    if (this.canvasName == "functionVisualizer") functionVisualizer(this.canvasName)
+    else if (this.canvasName == "galaxyGenerator") galaxyGenerator(this.canvasName)
+    else if (this.canvasName == "risingPlatforms") risingPlatforms(this.canvasName)
 
     let guiPanel = document.querySelector('.lil-gui')
     if(guiPanel != undefined) {
